@@ -8,6 +8,10 @@
     nb-card {
       margin-bottom: 1rem;
     }
+    nb-accordion-item-header{
+      padding: 0px;
+    }
+    
   }
 
   @include media-breakpoint-down(md) {

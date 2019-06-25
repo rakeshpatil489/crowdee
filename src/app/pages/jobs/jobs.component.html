@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card box">
+      <nb-card-header>List of Jobs</nb-card-header>
+      <nb-card-body>
+
+        <nb-list-item>
+
+
+          <!-- Header for the job lists -->
+
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="row show-grid">
+                <div class="col-3 col-md-2 text-center">
+                  <h5>ID</h5>
+                </div>
+                <div class="col-7 col-md-7 text-center">
+                  <h5>Job Title</h5>
+                </div>
+                <div class="col-12 col-md-2 text-center">
+                  <h5>Rewards</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <nb-accordion #item *ngFor='let res of mainarray | paginate: { itemsPerPage: 5, currentPage: p}'>
+
+            <nb-accordion-item>
+
+              <nb-accordion-item-header>
+                <!-- Displaying all the data here -->
+                <div class="col-md-12 col-lg-12 col-xxxl-12">
+
+                  <div class="row show-grid">
+                    <div class="col-4 col-md-2 mt-3">
+                      <nb-alert outline="active" class="text-center">
+                        <b>{{ res.id }}</b>
+                      </nb-alert>
+                    </div>
+                    <div class="col-8 col-md-7  mt-3">
+                      <nb-alert outline="disabled">
+                        <b> {{ res.title }}</b>
+                      </nb-alert>
+                    </div>
+                    <div class="col-12 col-md-2 text-center" *ngIf='res.rewardsPresent; else noreward'>
+                      <ng-container>
+
+                        <nb-alert status="info" class="mt-3">
+                          <div class="text-center">
+                            <b> {{ res.amount }} {{ res.currency }} </b>
+                          </div>
+                        </nb-alert>
+
+                      </ng-container>
+                    </div>
+
+                    <!-- Template Value -->
+                    <ng-template #noreward>
+                      <div class="col-12 col-md-2 text-center">
+                        <nb-alert status="info" class="mt-3">
+                          <div class="text-center">
+                            <b>No Reward</b>
+                          </div>
+                        </nb-alert>
+                      </div>
+                    </ng-template>
+                  </div>
+                </div>
+              </nb-accordion-item-header>
+
+
+
+
+
+              <nb-accordion-item-body>
+
+                <div class="container">
+                  <div class="container-fluid">
+                    <nb-alert outline="active">
+                      <h5>Description: </h5>
+                      <p [innerHTML]="res.description" class="color"></p>
+                    </nb-alert>
+                  </div>
+                </div>
+
+              </nb-accordion-item-body>
+
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <br>
+        </nb-list-item>
+
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+      </nb-card-body>
+
+    </nb-card>
+
+  </div>
+</div>

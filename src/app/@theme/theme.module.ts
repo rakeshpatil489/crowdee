@@ -9,7 +9,6 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbRouteTabsetModule,
-  NbSearchModule,
   NbSidebarModule,
   NbTabsetModule,
   NbThemeModule,
@@ -41,12 +40,9 @@ import {
 import { NbSecurityModule } from '@nebular/security';
 
 import {
-  FooterComponent,
+
   HeaderComponent,
-  SearchInputComponent,
   ThemeSettingsComponent,
-  SwitcherComponent,
-  LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
   TinyMCEComponent,
   ThemeSwitcherListComponent,
@@ -80,7 +76,6 @@ const NB_MODULES = [
   NbMenuModule,
   NbUserModule,
   NbActionsModule,
-  NbSearchModule,
   NbSidebarModule,
   NbCheckboxModule,
   NbPopoverModule,
@@ -109,13 +104,9 @@ const NB_MODULES = [
 ];
 
 const COMPONENTS = [
-  SwitcherComponent,
-  LayoutDirectionSwitcherComponent,
   ThemeSwitcherComponent,
   ThemeSwitcherListComponent,
   HeaderComponent,
-  FooterComponent,
-  SearchInputComponent,
   ThemeSettingsComponent,
   TinyMCEComponent,
   OneColumnLayoutComponent,
@@ -141,7 +132,7 @@ const PIPES = [
 const NB_THEME_PROVIDERS = [
   ...NbThemeModule.forRoot(
     {
-      name: 'cosmic',
+      name: 'default',
     },
     [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
   ).providers,
