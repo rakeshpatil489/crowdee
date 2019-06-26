@@ -7,7 +7,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Jobs List',
-    icon: 'nb-jobs',
+    icon: 'my-icon-job',
     link: '/pages/dashboard',
     home: true,
   }
